@@ -1,5 +1,6 @@
 using RentACar.Application.Features.Handlers.AboutHandlers;
 using RentACar.Application.Features.Handlers.BannerHandlers;
+using RentACar.Application.Features.Handlers.BrandHandlers;
 using RentACar.Application.Interfaces;
 using RentACar.Persistence.Context;
 using RentACar.Persistence.Repositories;
@@ -23,6 +24,12 @@ builder.Services.AddScoped<GetBannerByIdQueryHandler>();
 builder.Services.AddScoped<CreateBannerCommandHandler>();
 builder.Services.AddScoped<UpdataBannerCommandHandler>();
 builder.Services.AddScoped<RemoveBannerCommandHandler>();
+//brand
+builder.Services.AddScoped<GetBrandQueryHandler>();
+builder.Services.AddScoped<GetBrandByIdQueryHandler>();
+builder.Services.AddScoped<CreateBrandCommandHandler>();
+builder.Services.AddScoped<UpdateBrandCommandHandler>();
+builder.Services.AddScoped<RemoveBrandCommandHandler>();
 
 
 builder.Services.AddControllers();

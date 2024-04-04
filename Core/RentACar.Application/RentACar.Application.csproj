@@ -10,8 +10,4 @@
     <ProjectReference Include="..\RentACar.Domain\RentACar.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Handlers\BrandHandlers\" />
-  </ItemGroup>
-
 </Project>
