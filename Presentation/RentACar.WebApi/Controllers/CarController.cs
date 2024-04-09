@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RentACar.Application.Features.Commands.CarCommands;
-using RentACar.Application.Features.Handlers.CarHandlers;
+using RentACar.Application.Features.CQRS.Commands.CarCommands;
+using RentACar.Application.Features.CQRS.Handlers.CarHandlers;
+using RentACar.Application.Features.CQRS.Queries.CarQueries;
 
 namespace RentACar.WebApi.Controllers
 {
@@ -37,7 +38,7 @@ namespace RentACar.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCar(int id)
         {
-            var value = await _getCarByIdQueryHandler.Handle(new Application.Features.Queries.CarQueries.GetCarByIdQuery(id));
+            var value = await _getCarByIdQueryHandler.Handle(new GetCarByIdQuery(id));
             return Ok(value);
         }
 

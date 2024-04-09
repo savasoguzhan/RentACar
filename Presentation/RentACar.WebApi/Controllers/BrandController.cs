@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RentACar.Application.Features.Commands.BrandCommands;
-using RentACar.Application.Features.Handlers.BrandHandlers;
+using RentACar.Application.Features.CQRS.Commands.BrandCommands;
+using RentACar.Application.Features.CQRS.Handlers.BrandHandlers;
+using RentACar.Application.Features.CQRS.Queries.BrandQueries;
 
 namespace RentACar.WebApi.Controllers
 {
@@ -33,7 +34,7 @@ namespace RentACar.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Brand(int id)
         {
-            var value = await _getBrandByIdQueryHandler.Handle(new Application.Features.Queries.BrandQueries.GetBrandByIdQuery(id));
+            var value = await _getBrandByIdQueryHandler.Handle(new GetBrandByIdQuery(id));
             return Ok(value);   
 
         }

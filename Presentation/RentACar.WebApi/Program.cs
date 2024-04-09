@@ -1,11 +1,12 @@
-using RentACar.Application.Features.Handlers.AboutHandlers;
-using RentACar.Application.Features.Handlers.BannerHandlers;
-using RentACar.Application.Features.Handlers.BrandHandlers;
-using RentACar.Application.Features.Handlers.CarHandlers;
-using RentACar.Application.Features.Handlers.CategoryHandlers;
-using RentACar.Application.Features.Handlers.ContactHandlers;
+using RentACar.Application.Features.CQRS.Handlers.AboutHandlers;
+using RentACar.Application.Features.CQRS.Handlers.BannerHandlers;
+using RentACar.Application.Features.CQRS.Handlers.BrandHandlers;
+using RentACar.Application.Features.CQRS.Handlers.CarHandlers;
+using RentACar.Application.Features.CQRS.Handlers.CategoryHandlers;
+using RentACar.Application.Features.CQRS.Handlers.ContactHandlers;
 using RentACar.Application.Interfaces;
 using RentACar.Application.Interfaces.CarInterfaces;
+using RentACar.Application.Services;
 using RentACar.Persistence.Context;
 using RentACar.Persistence.Repositories;
 using RentACar.Persistence.Repositories.CarRepository;
@@ -55,6 +56,9 @@ builder.Services.AddScoped<GetContactByIdQueryHandler>();
 builder.Services.AddScoped<CreateContactCommandHandler>();
 builder.Services.AddScoped<UpdateContactCommandHandler>();
 builder.Services.AddScoped<RemoveContactCommandHandler>();
+
+//mediaR
+builder.Services.AddApplicationServices(builder.Configuration);
 
 
 

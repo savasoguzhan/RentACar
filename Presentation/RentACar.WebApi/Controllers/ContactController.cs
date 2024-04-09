@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RentACar.Application.Features.Commands.ContactCommands;
-using RentACar.Application.Features.Handlers.ContactHandlers;
+using RentACar.Application.Features.CQRS.Commands.ContactCommands;
+using RentACar.Application.Features.CQRS.Handlers.ContactHandlers;
+using RentACar.Application.Features.CQRS.Queries.ContactQueries;
 
 namespace RentACar.WebApi.Controllers
 {
@@ -35,7 +36,7 @@ namespace RentACar.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCategory(int id)
         {
-            var value = await _getContactByIdQueryHandler.Handle(new Application.Features.Queries.ContactQueries.GetContactByIdQuery(id));
+            var value = await _getContactByIdQueryHandler.Handle(new GetContactByIdQuery(id));
             return Ok(value);
         }
 

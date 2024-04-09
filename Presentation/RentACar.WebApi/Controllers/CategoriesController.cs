@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RentACar.Application.Features.Commands.CategoryCommands;
-using RentACar.Application.Features.Handlers.CategoryHandlers;
+using RentACar.Application.Features.CQRS.Commands.CategoryCommands;
+using RentACar.Application.Features.CQRS.Handlers.CategoryHandlers;
+using RentACar.Application.Features.CQRS.Queries.CategoryQueries;
 
 namespace RentACar.WebApi.Controllers
 {
@@ -33,7 +34,7 @@ namespace RentACar.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCategory(int id)
         {
-            var value = await _getCategoryByIdQueryHandle.Handle(new Application.Features.Queries.CategoryQueries.GetCategoryByIdQuery(id));
+            var value = await _getCategoryByIdQueryHandle.Handle(new GetCategoryByIdQuery(id));
             return Ok(value);
         }
         [HttpPost]

@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RentACar.Application.Features.Commands.BannerCommands;
-using RentACar.Application.Features.Handlers.BannerHandlers;
+using RentACar.Application.Features.CQRS.Commands.BannerCommands;
+using RentACar.Application.Features.CQRS.Handlers.BannerHandlers;
+using RentACar.Application.Features.CQRS.Queries.BannerQueries;
 
 namespace RentACar.WebApi.Controllers
 {
@@ -33,7 +34,7 @@ namespace RentACar.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Banner(int id)
         {
-            var value = await _getBannerByIdQueryHandler.Handle(new Application.Features.Queries.BannerQueries.GetBannerByIdQuery(id));
+            var value = await _getBannerByIdQueryHandler.Handle(new GetBannerByIdQuery(id));
             return Ok(value);
         }
 

@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RentACar.Application.Features.Commands.AboutCommands;
-using RentACar.Application.Features.Handlers.AboutHandlers;
-using RentACar.Application.Features.Queries.AboutQueries;
+using RentACar.Application.Features.CQRS.Commands.AboutCommands;
+using RentACar.Application.Features.CQRS.Handlers.AboutHandlers;
+using RentACar.Application.Features.CQRS.Queries.AboutQueries;
+
 
 namespace RentACar.WebApi.Controllers
 {
