@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using RentACar.Dto.TestimonialDTOS;
 
 namespace RentACar.WebUI.ViewComponents.TestimonialViewComponents
 {
@@ -18,7 +19,7 @@ namespace RentACar.WebUI.ViewComponents.TestimonialViewComponents
             if(responseMessage.IsSuccessStatusCode)
             {
                 var jsonDate = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<string>>(jsonDate);
+                var values = JsonConvert.DeserializeObject<List<ResultTestimonialDtos>>(jsonDate);
                 return View(values);
             }
 
