@@ -16,9 +16,10 @@ namespace RentACar.WebApi.Controllers
         private readonly GetCarQueryHandler _getCarQueryHandler;
         private readonly GetCarByIdQueryHandler _getCarByIdQueryHandler;
         private readonly GetCarWithBrandQueryHandler _getCarWithBrandQueryHandler;
+        private readonly GetCarLastFiveWithBrandQueryHandler _getCarLastFiveWithBrandQueryHandler;
 
         public CarController(CreateCarCommandHandler createCarCommandHandler,UpdateCarCommandHandler updateCarCommandHandler,
-            RemoveCarCommandHandler removeCarCommandHandler, GetCarQueryHandler getCarQueryHandler, GetCarByIdQueryHandler getCarByIdQueryHandler,GetCarWithBrandQueryHandler getCarWithBrandQueryHandler)
+            RemoveCarCommandHandler removeCarCommandHandler, GetCarQueryHandler getCarQueryHandler, GetCarByIdQueryHandler getCarByIdQueryHandler,GetCarWithBrandQueryHandler getCarWithBrandQueryHandler, GetCarLastFiveWithBrandQueryHandler getCarLastFiveWithBrandQueryHandler)
         {
             _createCarCommandHandler = createCarCommandHandler;
             _updateCarCommandHandler = updateCarCommandHandler;
@@ -26,6 +27,7 @@ namespace RentACar.WebApi.Controllers
             _getCarQueryHandler = getCarQueryHandler;
             _getCarByIdQueryHandler = getCarByIdQueryHandler;
             _getCarWithBrandQueryHandler = getCarWithBrandQueryHandler;
+            _getCarLastFiveWithBrandQueryHandler = getCarLastFiveWithBrandQueryHandler;
         }
 
         [HttpGet]
@@ -67,6 +69,13 @@ namespace RentACar.WebApi.Controllers
         public async Task<IActionResult> GetCarWithBrand()
         {
             var values = await _getCarWithBrandQueryHandler.Handle();
+            return Ok(values);
+        }
+
+        [HttpGet("GetLastFiveCarWithBrand")]
+        public async Task<IActionResult> GetLastFiveCarWithBrand()
+        {
+            var values = await _getCarLastFiveWithBrandQueryHandler.Handle();
             return Ok(values);
         }
     }
