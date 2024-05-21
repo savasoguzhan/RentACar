@@ -5,10 +5,12 @@ using RentACar.Application.Features.CQRS.Handlers.CarHandlers;
 using RentACar.Application.Features.CQRS.Handlers.CategoryHandlers;
 using RentACar.Application.Features.CQRS.Handlers.ContactHandlers;
 using RentACar.Application.Interfaces;
+using RentACar.Application.Interfaces.BlogInterfaces;
 using RentACar.Application.Interfaces.CarInterfaces;
 using RentACar.Application.Services;
 using RentACar.Persistence.Context;
 using RentACar.Persistence.Repositories;
+using RentACar.Persistence.Repositories.BlogRepository;
 using RentACar.Persistence.Repositories.CarRepository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<RentACarContext>();
 builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 builder.Services.AddScoped(typeof(ICarRepository),typeof(CarRepositories));
+builder.Services.AddScoped(typeof(IBlogRepository),typeof(BlogRepository));
 //about
 builder.Services.AddScoped<GetAboutQueryHandler>();
 builder.Services.AddScoped<GetAboutByIdQueryHandler>();

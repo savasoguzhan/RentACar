@@ -26,6 +26,13 @@ namespace RentACar.WebApi.Controllers
             return Ok(values);
         }
 
+        [HttpGet("GetLastThereeBlogsWithAuthor")]
+        public async Task<IActionResult> BlogListWithAuthors()
+        {
+            var values = await _mediator.Send(new GetLastThereeBlogsWithAuthorsQuery());
+            return Ok(values);
+        }
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetBlog(int id)
         {
