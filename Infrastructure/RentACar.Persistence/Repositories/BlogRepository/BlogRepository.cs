@@ -18,6 +18,13 @@ namespace RentACar.Persistence.Repositories.BlogRepository
         {
             _rentACarContext = rentACarContext;
         }
+
+        public List<Blog> GetAllBlogsWithAuthor()
+        {
+           var values = _rentACarContext.Blogs.Include(b => b.Author).ToList();
+            return values;
+        }
+
         public List<Blog> GetLastThereeBlogsWithAuthors()
         {
             var values = _rentACarContext.Blogs.Include(x=>x.Author).OrderByDescending(x=>x.BlogId).Take(3).ToList();
