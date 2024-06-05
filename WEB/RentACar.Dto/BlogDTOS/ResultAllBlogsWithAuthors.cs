@@ -21,5 +21,6 @@ namespace RentACar.Dto.BlogDTOS
         public DateTime CreateDate { get; set; }
 
         public int CategoryId { get; set; }
+        public string Description { get; set; }
     }
 }

@@ -26,11 +26,11 @@ namespace RentACar.Application.Features.Mediator.Handlers.BlogHandlers
                 AuthorId = x.AuthorId,
                 AuthorName =x.Author.Name,
                 BlogId = x.BlogId,
-                CategoryId = x.CategoryId,
-                CategoryName=x.Category.Name,
+               
                 CoverImageUrl = x.CoverImageUrl,
                 CreateDate = x.CreateDate,
                 Title=x.Title,
+                Description=x.Description ?? "No Description Avaible"
                
             }).ToList();
 
