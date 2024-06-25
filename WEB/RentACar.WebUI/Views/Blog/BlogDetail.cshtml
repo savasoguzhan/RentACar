@@ -1,0 +1,24 @@
+﻿
+@{
+    
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+<h1>BlogDetail</h1>
+
+<section class="ftco-section ftco-degree-bg">
+      <div class="container">
+        <div class="row">
+            @await Component.InvokeAsync("BlogDetailsMainComponentPartial")<!-- .col-md-8 -->
+          <div class="col-md-4 sidebar ftco-animate">
+                @await Component.InvokeAsync("BlogDetailSideBarSearchBoxComponentPartial")
+                @await Component.InvokeAsync("BlogDetailsCategoryViewComponents")
+                @await Component.InvokeAsync("BlogDetailsRecentBlogsComponentPartial")
+                @await Component.InvokeAsync("BlogDetailsParagrafComponentPartial")
+                
+
+            </div> <!-- Page Side -->
+
+        </div>
+      </div>
+    </section>
